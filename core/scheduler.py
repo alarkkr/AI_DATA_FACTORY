@@ -1,8 +1,8 @@
 import schedule
 import time
-from core.engine import start_engine
+from core.agent_manager import start_agents
 
-schedule.every(2).hours.do(start_engine)
+schedule.every(2).hours.do(start_agents)
 
 while True:
 
