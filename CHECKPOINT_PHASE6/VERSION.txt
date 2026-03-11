@@ -1,0 +1,15 @@
+AI DATA FACTORY
+PHASE 6 COMPLETE
+
+Modules working:
+? crawler swarm
+? topic discovery
+? vector database
+? knowledge graph
+? dataset exporter
+? scheduler
+? dashboard API
+
+Pending:
+• Ollama LLM integration
+• multi-agent research layer

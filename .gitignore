@@ -1,0 +1,15 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+vector.index
+knowledge_store.jsonl
+knowledge_graph.json
+topics.txt
+training_dataset.jsonl
+
+*.log
+.env
+.DS_Store
