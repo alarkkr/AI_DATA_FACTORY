@@ -2,14 +2,14 @@ from ai_processing.ollama_client import generate
 
 def generate_questions(topic):
 
-    prompt = f"""
-Generate 5 research questions about:
+    prompt=f"""
+You are an AI research assistant.
+
+Generate 3 research questions about:
 
 {topic}
-
-Return them as short sentences.
 """
 
-    response = generate(prompt)
+    response=generate(prompt)
 
     return response

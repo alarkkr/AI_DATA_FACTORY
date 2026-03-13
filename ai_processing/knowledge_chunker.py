@@ -1,12 +1,21 @@
-def chunk_knowledge(topics):
+import re
 
-    chunks = []
+def chunk_knowledge(text):
 
-    for t in topics:
+    paragraphs = re.split(r"\n\s*\n", text)
 
-        chunk = {
-            "topic": t,
-            "content": topics[t]
+    chunks=[]
+
+    for p in paragraphs:
+
+        p=p.strip()
+
+        if len(p) < 200:
+            continue
+
+        chunk={
+            "topic":"research",
+            "content":p
         }
 
         chunks.append(chunk)

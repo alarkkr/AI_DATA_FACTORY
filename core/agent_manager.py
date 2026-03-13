@@ -1,40 +1,13 @@
-import multiprocessing
-from core.engine import start_engine
-from core.resource_guard import system_ok
-from core.capacity_planner import calculate_agents
-
-def run_agent(agent_id):
-
-    if not system_ok():
-
-        print("System overloaded, skipping agent")
-
-        return
-
-    print(f"Agent {agent_id} started")
-
-    start_engine()
-
-    print(f"Agent {agent_id} finished")
+from system_auto_config import generate
 
 def start_agents():
 
-    agents = calculate_agents()
+    config=generate()
 
-    print(f"Launching {agents} crawler agents\n")
+    crawler_agents=config["crawler"]
 
-    processes = []
+    print("Launching",crawler_agents,"crawler agents")
 
-    for i in range(agents):
+    for i in range(crawler_agents):
 
-        p = multiprocessing.Process(target=run_agent,args=(i,))
-
-        processes.append(p)
-
-        p.start()
-
-    for p in processes:
-
-        p.join()
-
-    print("All agents completed")
+        print("Crawler",i,"started")

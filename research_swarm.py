@@ -1,16 +1,24 @@
 from crawler.topic_queue import get_topics
 from research_agent import run_research
+from domain_filter import allowed
 
 def run_swarm():
 
-    topics = get_topics()
+    topics=get_topics()
 
-    results = []
+    results=[]
 
-    for t in topics[:5]:
+    for t in topics:
 
-        r = run_research(t)
+        if not allowed(t):
+            continue
 
-        results.append(r)
+        r=run_research(t)
+
+        if r is not None:
+            results.append(r)
+
+        if len(results)>=5:
+            break
 
     return results
